@@ -26,31 +26,33 @@ namespace RegexEditor
             string contenido = tbContenido.Text;
             string patron=tbPatron.Text;
 
-            
 
-            tbResultado.Text = "";
-            Match m=Regex.Match(contenido, patron);
-
-            if(m.Success)
-                tbResultado.Text = "no hay resultado";
-
-            while (m.Success)
+            try
             {
-                if (chx.Checked==false)
+                tbResultado.Text = "";
+                Match m = Regex.Match(contenido, patron);
+
+                if (m.Success)
+                    tbResultado.Text = "no hay resultado";
+
+                while (m.Success)
                 {
-                    tbResultado.Text = m.Value;
-                }
-                else
-                {
-                    tbResultado.Text += "";
-                    foreach (Group g in m.Groups)
+                    if (chx.Checked == false)
                     {
-                        tbResultado.Text += g.Value+"\r\n";
+                        tbResultado.Text = m.Value;
                     }
+                    else
+                    {
+                        tbResultado.Text += "";
+                        foreach (Group g in m.Groups)
+                        {
+                            tbResultado.Text += g.Value + "\r\n";
+                        }
+                    }
+                    m = m.NextMatch();
                 }
-                m = m.NextMatch();
             }
-           
+            catch { }
             /*
             Regex regex = new Regex(contenido, RegexOptions.IgnoreCase);
 

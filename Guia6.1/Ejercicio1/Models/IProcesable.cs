@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio1.Models
 {
-    public interface IProcesar
+    public interface IProcesable
     {
         string Procesar(string patente, out string formateada);
     }

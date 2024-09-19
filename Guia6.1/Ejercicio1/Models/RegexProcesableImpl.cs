@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio1.Models
 {
-    public class RegexProcesarImpl : IProcesar
+    public class RegexProcesableImpl : IProcesable
     {
         public string Procesar(string patente, out string formateada)
         {

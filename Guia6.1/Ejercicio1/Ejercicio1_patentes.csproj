@@ -62,9 +62,9 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\IProcesar.cs" />
-    <Compile Include="Models\RegexProcesarImpl.cs" />
-    <Compile Include="Models\StringProcesarImpl.cs" />
+    <Compile Include="Models\IProcesable.cs" />
+    <Compile Include="Models\RegexProcesableImpl.cs" />
+    <Compile Include="Models\StringProcesableImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrincipal.resx">
@@ -90,9 +90,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UML\ejercicio1.uml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="UML\" />
+    <Content Include="UML\ejercicio1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

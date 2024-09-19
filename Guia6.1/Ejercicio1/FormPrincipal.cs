@@ -26,14 +26,14 @@ namespace Ejercicio1
                 "OXY333", "OYZ 013", "AAA 123", "BCD-456", "AB 123 CD", "YZ5432EF", "QW 3456 AB"
             };
 
-            IProcesar procesar = null;
+            IProcesable procesar = null;
             if (rbtnString.Checked)
             {
-                procesar = new StringProcesarImpl();
+                procesar = new StringProcesableImpl();
             }
             else if (rbtnRegex.Checked)
             {
-                procesar = new RegexProcesarImpl();
+                procesar = new RegexProcesableImpl();
             }
 
 
@@ -44,6 +44,26 @@ namespace Ejercicio1
 
                 tbVer.Text += $"{patenteFormateada} {descripcion} \r\n";
             }
+        }
+
+        private void rbtnString_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbVer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnRegex_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
