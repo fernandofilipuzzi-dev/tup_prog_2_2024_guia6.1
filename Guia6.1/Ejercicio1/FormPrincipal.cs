@@ -29,13 +29,15 @@ namespace Ejercicio1
             IProcesar procesar = null;
             if (rbtnString.Checked)
             {
-
+                procesar = new StringProcesarImpl();
             }
             else if (rbtnRegex.Checked)
             {
-                procesar = new RegexImpl();
+                procesar = new RegexProcesarImpl();
             }
 
+
+            tbVer.Clear();
             foreach (string patente in patentes)
             {
                 string descripcion = procesar.Procesar(patente, out string patenteFormateada);

@@ -63,7 +63,8 @@
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\IProcesar.cs" />
-    <Compile Include="Models\RegexImpl.cs" />
+    <Compile Include="Models\RegexProcesarImpl.cs" />
+    <Compile Include="Models\StringProcesarImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrincipal.resx">
