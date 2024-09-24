@@ -55,7 +55,6 @@
             this.tbVer.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbVer.Size = new System.Drawing.Size(562, 168);
             this.tbVer.TabIndex = 7;
-            this.tbVer.TextChanged += new System.EventHandler(this.tbVer_TextChanged);
             // 
             // label1
             // 
@@ -65,7 +64,6 @@
             this.label1.Size = new System.Drawing.Size(34, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "Ver";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // rbtnString
             // 
@@ -77,7 +75,6 @@
             this.rbtnString.TabStop = true;
             this.rbtnString.Text = "string";
             this.rbtnString.UseVisualStyleBackColor = true;
-            this.rbtnString.CheckedChanged += new System.EventHandler(this.rbtnString_CheckedChanged);
             // 
             // rbtnRegex
             // 
@@ -89,7 +86,6 @@
             this.rbtnRegex.TabStop = true;
             this.rbtnRegex.Text = "regex";
             this.rbtnRegex.UseVisualStyleBackColor = true;
-            this.rbtnRegex.CheckedChanged += new System.EventHandler(this.rbtnRegex_CheckedChanged);
             // 
             // FormPrincipal
             // 

@@ -35,7 +35,11 @@ namespace Ejercicio1
             {
                 procesar = new RegexProcesableImpl();
             }
-
+            else
+            {
+                MessageBox.Show("Seleccione alguna opción");
+                return;
+            }
 
             tbVer.Clear();
             foreach (string patente in patentes)
@@ -44,26 +48,6 @@ namespace Ejercicio1
 
                 tbVer.Text += $"{patenteFormateada} {descripcion} \r\n";
             }
-        }
-
-        private void rbtnString_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbVer_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnRegex_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
