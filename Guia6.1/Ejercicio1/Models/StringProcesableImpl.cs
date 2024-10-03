@@ -11,36 +11,45 @@ namespace Ejercicio1.Models
     {
         public string Procesar(string patente, out string formateada)
         {
-            formateada = patente.Replace(" ", "").Replace("-", "").ToUpper();
+            string patenteNormalizada = patente.Replace(" ", "").Replace("-", "").ToUpper();
 
-            bool isHasta2016 = formateada.Length >=6;
-            for (int n = 0; n < formateada.Length && isHasta2016==true; n++)
+            #region caso patente hasta 2016
+
+            bool isHasta2016 = patenteNormalizada.Length == 6;
+            for (int n = 0; n < patenteNormalizada.Length && isHasta2016==true; n++)
             {
-                char d=formateada[n];
-                isHasta2016 &= (char.IsLetter(d) && n < 3) || (char.IsDigit(d) && n < 6 &&n >= 3);
+                char d= patenteNormalizada[n];
+                isHasta2016 &= (char.IsLetter(d) && n < 3) || (char.IsNumber(d) && n < 6 &&n >= 3);
             }
             
             if (isHasta2016==true)
             {
+                formateada = patenteNormalizada;
                 return "Automóviles y camionetas hasta 2016";
             }
+            #endregion
 
-            bool isDesde2016 = formateada.Length >= 7;
-            for (int n = 0; n < formateada.Length && isDesde2016 == true; n++)
+            #region caso patente desde 2016
+            bool isDesde2016 = patenteNormalizada.Length == 7;
+            for (int n = 0; n < patenteNormalizada.Length && isDesde2016 == true; n++)
             {
-                char d = formateada[n];
-                isDesde2016 &= (char.IsLetter(d) && n < 2) || (char.IsDigit(d) && n < 5 && n >= 2) || (char.IsLetter(d) && n < 7 && n >= 5);
+                char d = patenteNormalizada[n];
+                isDesde2016 &= (char.IsLetter(d) && n < 2) || 
+                        (char.IsNumber(d) && n < 5 && n >= 2) || 
+                        (char.IsLetter(d) && n < 7 && n >= 5);
             }
 
             if (isDesde2016 == true)
             {
+                formateada= patenteNormalizada;
                 return "Automóviles y camionetas desde 2016";
             }
+            #endregion
 
             //Procesar los otros casos
 
             formateada = "";
-            return "NN";
+            return $"No identificada: {patente}";
         }
     }
 }

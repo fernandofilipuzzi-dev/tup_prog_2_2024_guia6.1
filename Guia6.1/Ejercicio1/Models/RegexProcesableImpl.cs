@@ -35,7 +35,7 @@ namespace Ejercicio1.Models
                 return "Automóviles y camionetas desde 2016";
             }
 
-            return "NN";
+            return $"No identificada: {patente}";
         }
     }
 }
