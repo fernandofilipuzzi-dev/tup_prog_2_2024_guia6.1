@@ -24,44 +24,51 @@ namespace RegexEditor
         private void btnVerResultado_Click(object sender, EventArgs e)
         {
             string contenido = tbContenido.Text;
-            string patron=tbPatron.Text;
+            string patron = tbPatron.Text;
 
+            tbResultado.Text = "";
+            Match m = Regex.Match(contenido, patron);
 
-            try
+            if (m.Success == false)
+                tbResultado.Text = "no hay resultado";
+
+            while (m.Success)
             {
-                tbResultado.Text = "";
-                Match m = Regex.Match(contenido, patron);
-
-                if (m.Success)
-                    tbResultado.Text = "no hay resultado";
-
-                while (m.Success)
+                if (chxEsGrupo.Checked == false)
                 {
-                    if (chx.Checked == false)
-                    {
-                        tbResultado.Text = m.Value;
-                    }
-                    else
-                    {
-                        tbResultado.Text += "";
-                        foreach (Group g in m.Groups)
-                        {
-                            tbResultado.Text += g.Value + "\r\n";
-                        }
-                    }
-                    m = m.NextMatch();
+                    tbResultado.Text = m.Value;
                 }
+                else
+                {
+                    for (int n = 1; n < m.Groups.Count; n++)
+                    {
+                        tbResultado.Text += m.Groups[n].Value + "\r\n";
+                    }
+                }
+                m = m.NextMatch();
             }
-            catch { }
-            /*
-            Regex regex = new Regex(contenido, RegexOptions.IgnoreCase);
+        }
 
-            Match m = regex.Match(patron);
-            if (m.Success)
-            { 
-                m.NextMatch
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.AddRange(
+                new Ejemplo[]{ 
+                    new Ejemplo("([0-9]+)","312-45645-4565",true),
+                    new Ejemplo("[0-9]+","312-45645-4565",false)
+                });
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Ejemplo ej= comboBox1.SelectedItem as Ejemplo;
+
+            if (ej != null)
+            {
+                tbContenido.Text = ej.Contenido;
+                tbPatron.Text = ej.Patron;
+                chxEsGrupo.Checked = ej.EsGrupo;
             }
-            */
         }
     }
 }

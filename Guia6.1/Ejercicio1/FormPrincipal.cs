@@ -44,7 +44,7 @@ namespace Ejercicio1
             tbVer.Clear();
             foreach (string patente in patentes)
             {
-                string descripcion = procesar.Procesar(patente, out string patenteFormateada);
+                string descripcion = procesar.Procesar(patente, out string patenteFormateada); //polimofismo!
 
                 tbVer.Text += $"{patenteFormateada} {descripcion} \r\n";
             }
