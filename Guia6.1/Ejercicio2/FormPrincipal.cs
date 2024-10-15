@@ -16,11 +16,8 @@ namespace Ejercicio2
         public FormPrincipal()
         {
             InitializeComponent();
-        }
 
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            string contenido = @"                                            Paraná, 20 de Diciembre de 2024
+            tbContenido.Text = @"                                            Paraná, 20 de Diciembre de 2024
 Sr(a) Medina Noemí, El despacho JURÍDICO GUTIERREZ & ASOCIADOS, mediante el
 presente EXHORTO EXTRA JUDICIAL de  cobro se le Notifica:
 Basados en el  en  el préstamo emitido por el corporativo LEANDRO KRUGER,
@@ -29,7 +26,11 @@ DILIGENCIA DE RECUPERACIÓN DE CARTERA EN SU DOMICILIO, debido a la EVASIÓN
 DE PAGO consumada contra mi cliente, por el adeudo de su crédito por la
 cantidad de $6.000,00 (seis mil pesos).
 ";
+        }
 
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            string contenido=tbContenido.Text;
             IProcesable procesar = null;
             if (rbtnString.Checked)
             {
@@ -39,12 +40,10 @@ cantidad de $6.000,00 (seis mil pesos).
             {
                 procesar = new RegexProcesableImpl();
             }
-
-
-            tbVer.Clear();
-                
+    
             Intimacion intimacion = procesar.Procesar(contenido);
 
+            tbVer.Clear();
             tbVer.Text += $"{intimacion} \r\n";
         }
     }
